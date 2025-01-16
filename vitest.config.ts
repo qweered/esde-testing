@@ -5,7 +5,10 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['tests/**/*.vitest.test.ts', 'tests/unit/**/*.ts'],
+    include: [
+      'tests/**/*.vitest.test.ts', 
+      'tests/unit/**/*.ts'
+    ],
     exclude: [
       'tests/e2e/**/*',
       'tests/**/*.playwright.test.ts'
