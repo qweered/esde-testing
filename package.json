@@ -1,0 +1,14 @@
+{
+  "name": "esde-testing",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/bun": "latest",
+    "@types/node": "^22.10.7"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {}
+}
