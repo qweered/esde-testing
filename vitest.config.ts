@@ -5,18 +5,24 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['tests/**/*.test.ts'],
-    exclude: ['tests/e2e/**/*', 'tests/api/**/*'],
+    include: ['tests/**/*.vitest.test.ts', 'tests/unit/**/*.ts'],
+    exclude: [
+      'tests/e2e/**/*',
+      'tests/**/*.playwright.test.ts'
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
+      extension: ['.ts'],
       exclude: [
-        'node_modules/',
-        'tests/',
-        '**/*.test.ts',
-        '**/*.config.ts'
+        'node_modules/**',
+        'coverage/**',
+        '.github/**',
       ],
-      include: ['src/**/*.ts']
+      include: [
+        'src/**/*.ts'
+      ],
+      reportsDirectory: './coverage'
     }
   }
 }) 

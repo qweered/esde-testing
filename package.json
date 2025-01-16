@@ -16,8 +16,10 @@
   "scripts": {
     "test:unit": "vitest run",
     "test:unit:watch": "vitest watch",
-    "test:e2e": "playwright test",
-    "test:api": "playwright test tests/api/",
+    "test:e2e": "playwright test --project=e2e",
+    "test:api": "vitest run tests/api/ && playwright test --project=api",
+    "test:api:vitest": "vitest run tests/api/",
+    "test:api:playwright": "playwright test --project=api",
     "test:all": "bun run test:unit && bun run test:api && bun run test:e2e",
     "test:coverage": "vitest run --coverage"
   }
