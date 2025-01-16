@@ -1,5 +1,3 @@
-# run with
-# nix develop .
 {
   description = "dev env";
 
@@ -18,9 +16,8 @@
       ];
 
       PLAYWRIGHT_NODEJS_PATH = "${pkgs.nodejs}/bin/node";
-      PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = 1;
-      #PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
+      PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+      PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = true;
 
       shellHook = ''
         echo "dev env started"
