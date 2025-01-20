@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { ApiClient, assertNonEmptyArray, assertAllPostIdMatch, assertAllEpisodesContainRick } from './shared/api-client';
 
 test.describe('API Tests', () => {
-  const api = new ApiClient();
+  const api = ApiClient.getInstance();
 
   test('GET /posts should return non-empty array', async () => {
     const posts = await api.getPosts();

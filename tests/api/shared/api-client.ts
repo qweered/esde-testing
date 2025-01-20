@@ -24,7 +24,15 @@ export interface GraphQLResponse {
 }
 
 export class ApiClient {
-  constructor(private baseUrl: string = 'https://jsonplaceholder.typicode.com') {}
+  private static instance: ApiClient;
+  private constructor(private baseUrl: string = 'https://jsonplaceholder.typicode.com') {}
+
+  static getInstance(): ApiClient {
+    if (!ApiClient.instance) {
+      ApiClient.instance = new ApiClient();
+    }
+    return ApiClient.instance;
+  }
 
   async getPosts(): Promise<Post[]> {
     const response = await fetch(`${this.baseUrl}/posts`);
