@@ -3,7 +3,16 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   timeout: 30000,
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['list']
+  ],
+  workers: 4,
+  fullyParallel: true,
+  use: {
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+  },
   projects: [
     {
       name: 'api',
@@ -14,7 +23,10 @@ export default defineConfig({
     },
     {
       name: 'e2e',
-      testMatch: /.*e2e\.test\.ts/,
+      testMatch: /.*saucedemo\.test\.ts/,
+      use: {
+        baseURL: 'https://www.saucedemo.com',
+      },
     },
   ],
 });
